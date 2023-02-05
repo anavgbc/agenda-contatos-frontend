@@ -1,6 +1,14 @@
+import { BsTrash } from "react-icons/bs";
 import { Container } from "./style";
+import { FiEdit3 } from "react-icons/fi";
+import { useContext } from "react";
+import { HomePageContext } from "../../providers/HomeContext";
+import ModalHome from "../Modal";
 
-const Card = ({ user }) => {
+const Card = ({ user, id }) => {
+  const { deleteContact } = useContext(HomePageContext);
+  console.log(user);
+
   return (
     <>
       <Container>
@@ -16,8 +24,15 @@ const Card = ({ user }) => {
           <h3>{user.name}</h3>
           <p>{user.number}</p>
           <p>{user.email}</p>
-          <small>Salvo em: </small>
+          <small>Salvo em: {user.createdAt}</small>
         </div>
+        <button onClick={() => deleteContact(id)}>
+          <BsTrash />
+        </button>
+        <ModalHome id={id}>
+          {/* <FiEdit3 /> */}
+          Editar
+        </ModalHome>
       </Container>
     </>
   );

@@ -5,7 +5,7 @@ import { AuthContext } from "../../providers/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {
-  const { user, token } = useContext(AuthContext);
+  const { userData, token } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -32,7 +32,7 @@ const Header = () => {
                 alt=""
               />
             </figure>
-            <h3>{user.name}</h3>
+            <h3>{userData.name}</h3>
           </div>
         </>
       )}

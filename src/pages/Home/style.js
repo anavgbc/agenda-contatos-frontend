@@ -8,6 +8,13 @@ export const ContainerPage = styled.div`
   align-items: center;
   justify-content: center;
   margin: 0 auto;
+
+  .chakra-modal__body {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const Container = styled.div`
