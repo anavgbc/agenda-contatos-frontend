@@ -9,6 +9,19 @@ export const FormContainer = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media screen and (min-width: 768px) {
+    width: 60%;
+  }
+
+  @media screen and (min-width: 900px) {
+    width: 25%;
+  }
+
+  span,
+  button {
+    margin: 20px 0px;
+  }
 `;
 
 export const Input = styled.div`

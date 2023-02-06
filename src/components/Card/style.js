@@ -13,9 +13,6 @@ export const Container = styled.div`
     justify-content: space-evenly;
   }
 
-  @media screen and (min-width: 768px) {
-  }
-
   .container-img {
     width: 15%;
 
