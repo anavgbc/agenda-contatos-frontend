@@ -1,7 +1,7 @@
 import Card from "../../components/Card";
 import Header from "../../components/Header";
 import { Container, ContainerPage, MenuBar } from "./style";
-import { AiOutlineSearch, AiOutlineUserAdd } from "react-icons/ai";
+import { AiOutlineSearch } from "react-icons/ai";
 import { HiMenuAlt1 } from "react-icons/hi";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthContext";
@@ -34,8 +34,10 @@ const Home = () => {
           <MenuBar>
             <HiMenuAlt1 />
             Contatos
-            <ModalHome isAdd={true}> Adicionar</ModalHome>
-            <AiOutlineSearch />
+            <div>
+              <ModalHome isAdd={true}> Adicionar</ModalHome>
+              <AiOutlineSearch />
+            </div>
           </MenuBar>
           {contacts.length > 0 ? (
             contacts.map((contact) => (

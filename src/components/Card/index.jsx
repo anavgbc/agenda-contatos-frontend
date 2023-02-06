@@ -1,6 +1,5 @@
 import { BsTrash } from "react-icons/bs";
 import { Container } from "./style";
-import { FiEdit3 } from "react-icons/fi";
 import { useContext } from "react";
 import { HomePageContext } from "../../providers/HomeContext";
 import ModalHome from "../Modal";
@@ -21,18 +20,24 @@ const Card = ({ user, id }) => {
           </figure>
         </div>
         <div className="container-info">
-          <h3>{user.name}</h3>
-          <p>{user.number}</p>
-          <p>{user.email}</p>
-          <small>Salvo em: {user.createdAt}</small>
+          <div>
+            <h2>{user.name}</h2>
+            <p id="info-number">{user.number}</p>
+          </div>
+          <div>
+            <p id="info-email">{user.email}</p>
+            <small>Salvo em: {user.createdAt.split("T")[0]}</small>
+          </div>
         </div>
-        <button onClick={() => deleteContact(id)}>
-          <BsTrash />
-        </button>
-        <ModalHome id={id}>
-          {/* <FiEdit3 /> */}
-          Editar
-        </ModalHome>
+        <div className="container-btns">
+          <button onClick={() => deleteContact(id)}>
+            <BsTrash />
+          </button>
+          <ModalHome id={id} className="edit-card-btn">
+            {/* <FiEdit3 /> */}
+            Editar
+          </ModalHome>
+        </div>
       </Container>
     </>
   );

@@ -25,6 +25,8 @@ export const HomePageContextProvider = ({ children }) => {
   };
 
   const editContact = (data) => {
+    // const filteredData = data.filter((info) => info);
+
     console.log(data);
     api
       .patch(`/contacts/${cardId}`, data)

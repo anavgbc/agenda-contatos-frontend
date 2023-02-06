@@ -116,7 +116,9 @@ const ModalHome = ({ children, id, isAdd }) => {
                   error={errors.number?.message}
                   grayColor
                 />
-                <button type="submit">Salvar</button>
+                <button type="submit" onClick={() => onClose()}>
+                  Salvar
+                </button>
               </form>
             )}
           </ModalBody>
