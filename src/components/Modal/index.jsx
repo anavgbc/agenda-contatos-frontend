@@ -27,8 +27,6 @@ const ModalHome = ({ children, id, isAdd }) => {
   const schema = yup.object().shape({
     email: yup.string().email("E-mail inválido"),
   });
-  console.log(cardId);
-  console.log(isAdd);
 
   const {
     register,

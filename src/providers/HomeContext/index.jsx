@@ -13,25 +13,18 @@ export const HomePageContextProvider = ({ children }) => {
   const { token } = useContext(AuthContext);
 
   const createContact = (data) => {
-    console.log(data);
-
     api
       .post("/contacts", data)
       .then((response) => {
-        console.log(response);
         setRefreshList(!refreshList);
       })
       .catch((_) => console.log(_));
   };
 
   const editContact = (data) => {
-    // const filteredData = data.filter((info) => info);
-
-    console.log(data);
     api
       .patch(`/contacts/${cardId}`, data)
       .then((response) => {
-        console.log(response);
         setRefreshList(!refreshList);
       })
       .catch((_) => console.log(_));
@@ -41,7 +34,6 @@ export const HomePageContextProvider = ({ children }) => {
     api
       .delete(`/contacts/${id}`)
       .then((response) => {
-        console.log(response);
         setRefreshList(!refreshList);
       })
       .catch((_) => console.log(_));

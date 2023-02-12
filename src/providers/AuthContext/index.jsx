@@ -16,7 +16,6 @@ export const AuthContextProvider = ({ children }) => {
   const userData = JSON.parse(localStorage.getItem("user"));
 
   const onSubmit = (data) => {
-    console.log(data);
     api
       .post("/login", data)
       .then((response) => {
@@ -25,7 +24,6 @@ export const AuthContextProvider = ({ children }) => {
 
         setUser(response.data.user);
         setAuthenticated(true);
-        console.log(response);
         navigate("/home", { replace: true });
       })
       .catch((_) => console.log(_));

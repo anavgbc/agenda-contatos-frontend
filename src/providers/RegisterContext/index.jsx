@@ -9,15 +9,9 @@ export const RegisterContextProvider = ({ children }) => {
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    console.log(data);
     api
       .post("/users", data)
       .then((response) => {
-        // localStorage.setItem("token", JSON.stringify(response.data.token));
-        // localStorage.setItem("user", JSON.stringify(response.data.user));
-
-        // console.log(response.data.user);
-        console.log(response);
         navigate("/login", { replace: true });
       })
       .catch((_) => console.log(_));

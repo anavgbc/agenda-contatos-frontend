@@ -6,7 +6,6 @@ import ModalHome from "../Modal";
 
 const Card = ({ user, id }) => {
   const { deleteContact } = useContext(HomePageContext);
-  console.log(user);
 
   return (
     <>
