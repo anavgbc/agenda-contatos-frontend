@@ -34,12 +34,21 @@ const FormLogin = () => {
           error={errors.name?.message}
         />
         <Input
-          placeholder={"Numero"}
-          title="Numero"
+          placeholder={"(00) 00000-0000"}
+          title="Telefone"
           type="text"
           Icon={BsTelephone}
           {...register("number")}
           error={errors.number?.message}
+          // onChange={(e) => {
+          //   e.target.value = e.target.value.replace(/(\s)/, "");
+          //   e.target.value = e.target.value.replace(/(\D)/, "");
+          //   e.target.value = e.target.value.replace(
+          //     /(\d{2})(\d{5})(\d{4})/,
+          //     "($1) $2-$3"
+          //   );
+          // }}
+          // maxLength={15}
         />
         <Input
           placeholder={"Email"}
@@ -59,7 +68,7 @@ const FormLogin = () => {
         />
         <Button type="submit" text="Cadastrar"></Button>
         <span>
-          Ja tem uma conta? Faça <Link to={"/login"}>login</Link>
+          Ja tem uma conta? <Link to={"/login"}>Login</Link>
         </span>
       </FormContainer>
     </>

@@ -1,11 +1,9 @@
 import FormRegister from "../../components/FormRegister";
-import Header from "../../components/Header";
-import { Container } from "./style";
+import { Container } from "../Login/style";
 
 const Register = () => {
   return (
     <>
-      <Header />
       <Container>
         <FormRegister />
       </Container>
