@@ -34,8 +34,7 @@ body {
     background-color: #f7f7f7;
     height: 100vh;
     width: 100vw;
-    font-family: "Nunito", sans-serif;
-    /* display: flex;
+    font-family: 'Montserrat', sans-serif;    /* display: flex;
     flex-direction: column;
     justify-content: center; */
 }

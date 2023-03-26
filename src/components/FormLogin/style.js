@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const FormContainer = styled.form`
   width: 80%;
-  background-color: #e8e6e6;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
   border-radius: 5px;
   padding: 10px;
   display: flex;
@@ -15,18 +16,21 @@ export const FormContainer = styled.form`
   }
 
   @media screen and (min-width: 900px) {
-    width: 25%;
+    width: 30%;
   }
 
   span,
   button {
     margin: 20px 0px;
   }
-`;
 
-export const Input = styled.div`
-  width: 80%;
-  background-color: blue;
-  border-radius: 5px;
-  padding: 10px;
+  a {
+    font-weight: 500;
+    color: #3d40d3;
+  }
+
+  a:hover {
+    text-decoration: underline;
+    color: #6b6eea;
+  }
 `;

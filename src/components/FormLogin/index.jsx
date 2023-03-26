@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import Input from "../Input";
 import { FormContainer } from "./style";
 import { HiOutlineMail } from "react-icons/hi";
