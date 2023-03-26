@@ -1,14 +1,17 @@
 import { AuthContextProvider } from "./AuthContext";
 import { RegisterContextProvider } from "./RegisterContext";
 import { HomePageContextProvider } from "./HomeContext";
+import { ModalContextProvider } from "./ModalContext";
 
 const Providers = ({ children }) => {
   return (
-    <HomePageContextProvider>
-      <RegisterContextProvider>
-        <AuthContextProvider>{children}</AuthContextProvider>
-      </RegisterContextProvider>
-    </HomePageContextProvider>
+    <ModalContextProvider>
+      <HomePageContextProvider>
+        <RegisterContextProvider>
+          <AuthContextProvider>{children}</AuthContextProvider>
+        </RegisterContextProvider>
+      </HomePageContextProvider>
+    </ModalContextProvider>
   );
 };
 
