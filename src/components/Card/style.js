@@ -1,30 +1,91 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  width: 90%;
-  background-color: #dad8d8;
+export const Container = styled.li`
+  width: 100%;
+  background-color: white;
+  padding: 10px;
+
+  position: relative;
+
   display: flex;
   flex-direction: row;
-  padding: 15px;
   justify-content: space-between;
+  align-items: center;
+
   border-radius: 10px;
 
-  @media screen and (min-width: 540px) {
-    justify-content: space-evenly;
+  margin-bottom: 10px;
+
+  &:hover {
+    background-color: #f5f2fe;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  .options--menu {
+    li {
+      background-color: pink;
+    }
+  }
+
+  .container-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    max-width: 35%;
+
+    h2 {
+      font-weight: 500;
+      font-size: 18px;
+    }
+    h2 {
+      width: 14ch;
+
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    #info-email {
+      font-size: 14px;
+      margin-top: 5px;
+      width: 20ch;
+
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+
+      color: rgb(172, 172, 172);
+      @media screen and (max-width: 480px) {
+        display: none;
+      }
+    }
+  }
+
+  small {
+    color: rgb(172, 172, 172);
+    font-size: 14px;
+    text-align: start;
+
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
   }
 
   .container-img {
-    width: 15%;
+    width: 35px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    @media screen and (min-width: 540px) {
-      img {
-        width: 60px;
-        height: 60px;
-      }
+    margin-right: 25px;
+
+    img {
+      width: 100%;
+      /* height: 25%; */
+      border-radius: 50%;
     }
 
     @media screen and (max-width: 390px) {
@@ -32,78 +93,66 @@ export const Container = styled.div`
     }
   }
 
-  .container-info {
+  .container-number {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    flex-direction: column;
+    align-items: center;
 
-    h2 {
-      font-size: 18px;
-      font-weight: 500;
-      border-bottom: 1px solid gray;
+    @media screen and (max-width: 390px) {
+      margin: 0px 8px;
+    }
 
-      @media screen and (max-width: 390px) {
-        width: 90px;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
+    .contact--favorited {
+      color: #9c99ff;
+      margin-right: 15px;
+
+      #nonFavorited {
+        display: none;
+      }
+
+      &:hover {
+        transition: 0.2s;
+        #favorited {
+          display: none;
+        }
+
+        #nonFavorited {
+          display: flex;
+        }
+      }
+    }
+
+    .contact--nonFavorited {
+      color: #9c99ff;
+      margin-right: 15px;
+
+      #favorited {
+        display: none;
+      }
+
+      &:hover {
+        transition: 0.2s;
+        #nonFavorited {
+          display: none;
+        }
+
+        #favorited {
+          display: flex;
+        }
       }
     }
 
     #info-number {
       font-weight: 500;
-      color: gray;
-    }
-
-    #info-email {
-      font-size: 16px;
-      color: gray;
-
-      @media screen and (max-width: 390px) {
-        display: none;
-      }
-    }
-
-    small {
-      color: gray;
-      font-size: 14px;
-      text-align: start;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      overflow: hidden;
-    }
-
-    @media screen and (min-width: 540px) {
-      /* justify-content: space-evenly; */
-      width: 50%;
-    }
-
-    @media screen and (min-width: 900px) {
-      width: 90%;
-      padding: 15px;
-      gap: 10px;
-      /* background-color: blue; */
-      justify-content: space-evenly;
-      flex-direction: row;
     }
   }
-
   .container-btns {
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    justify-content: space-around;
-    gap: 10px;
-
-    @media screen and (min-width: 900px) {
-    }
-  }
-
-  img {
-    width: 40px;
-    height: 40px;
+    margin: 0px 10px;
+    padding: 5px 8px;
     border-radius: 50%;
-    /* margin-right: 50px; */
+
+    &:hover {
+      background-color: #eeeeee;
+    }
   }
 `;
