@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.li`
   width: 100%;
   background-color: white;
-  padding: 10px;
+  padding: 12px;
 
   position: relative;
 
@@ -20,6 +20,12 @@ export const Container = styled.li`
     background-color: #f5f2fe;
     cursor: pointer;
     transition: 0.2s;
+
+    .container-info {
+      #info-email {
+        color: rgb(165 163 163);
+      }
+    }
   }
 
   .options--menu {
@@ -57,6 +63,7 @@ export const Container = styled.li`
       overflow: hidden;
 
       color: rgb(172, 172, 172);
+
       @media screen and (max-width: 480px) {
         display: none;
       }
