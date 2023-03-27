@@ -16,6 +16,47 @@ export const ModalBody = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    #contact--number {
+      margin: 20px 0px 0px 10px;
+    }
+
+    .number--input {
+      .PhoneInputInput {
+        /* border: 1px solid red; */
+        padding-right: 40px;
+
+        input {
+          padding-right: 0px;
+        }
+      }
+
+      .PhoneInputCountry {
+        margin-left: 10px;
+        /* width: 20%; */
+        /* border: 1px solid blue; */
+      }
+      input {
+        /* padding: 10px; */
+        /* margin-left: 10px; */
+        border-radius: 5px;
+        background-color: rgba(156, 153, 255, 0.06);
+      }
+    }
+
+    .contact-name {
+      width: 90%;
+      display: flex;
+      flex-direction: row;
+
+      margin-top: 15px;
+    }
+
+    #upload-image {
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+    }
   }
 
   svg {
@@ -25,10 +66,10 @@ export const ModalBody = styled.div`
   input {
     margin-left: 10px;
 
-    &:focus::placeholder {
+    /* &:focus::placeholder {
       color: transparent;
       transition: 0.2s;
-    }
+    } */
   }
 `;
 

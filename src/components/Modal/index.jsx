@@ -5,10 +5,11 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { ModalBody, ButtonAdd } from "./style";
 import * as yup from "yup";
-import { BsPerson, BsTelephone } from "react-icons/bs";
+import { BsPerson } from "react-icons/bs";
 import { HomePageContext } from "../../providers/HomeContext";
 import { useContext, useState } from "react";
-import { api } from "../../services/api";
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 
 const style = {
   position: "absolute",
@@ -23,8 +24,17 @@ const style = {
 };
 
 const ModalHome = ({ id, edit }) => {
-  const { handleClose, open, isEdit, cardId, editContact, createContact } =
-    useContext(HomePageContext);
+  const {
+    handleClose,
+    open,
+    isEdit,
+    number,
+    setnumber,
+    editContact,
+    createContact,
+  } = useContext(HomePageContext);
+
+  // console.log(number);
 
   const schema = yup.object().shape({
     // email: yup.string().email("E-mail inválido"),
@@ -34,6 +44,7 @@ const ModalHome = ({ id, edit }) => {
     register,
     handleSubmit,
     reset,
+    control,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
@@ -50,15 +61,49 @@ const ModalHome = ({ id, edit }) => {
                 isEdit ? handleSubmit(editContact) : handleSubmit(createContact)
               }
             >
-              <Input
-                placeholder={"Nome"}
-                title="Nome"
+              <div className="contact-name">
+                <Input
+                  placeholder={"Nome"}
+                  title="Nome"
+                  type="text"
+                  Icon={BsPerson}
+                  {...register("firstName")}
+                  error={errors.firstName?.message}
+                  grayColor
+                />
+                <Input
+                  placeholder={"Sobrenome"}
+                  title="Sobrenome"
+                  type="text"
+                  Icon={BsPerson}
+                  {...register("lastName")}
+                  error={errors.lastName?.message}
+                  grayColor
+                />
+              </div>
+              <span id="contact--number">
+                <label htmlFor="">Telefone</label>
+                <PhoneInput
+                  className="number--input"
+                  placeholder="+55 00 00000-0000"
+                  defaultCountry="BR"
+                  international
+                  value={number}
+                  onChange={setnumber}
+                  inputComponent={Input}
+                />
+              </span>
+
+              {/* <Input
+                  {...register("number")}
+                error={errors.number?.message}
+                placeholder={"Numero"}
+                title="Numero"
                 type="text"
-                Icon={BsPerson}
-                {...register("name")}
-                error={errors.name?.message}
+                Icon={BsTelephone}
                 grayColor
-              />
+              /> */}
+
               <Input
                 placeholder={"Email"}
                 title="Email"
@@ -68,15 +113,17 @@ const ModalHome = ({ id, edit }) => {
                 error={errors.email?.message}
                 grayColor
               />
-              <Input
-                placeholder={"Numero"}
-                title="Numero"
-                type="text"
-                Icon={BsTelephone}
-                {...register("number")}
-                error={errors.number?.message}
-                grayColor
-              />
+              <span id="upload-image">
+                {/* <label htmlFor="">Imagem</label> */}
+                {/* <input
+                  type="file"
+                  name=""
+                  id=""
+                  onChange={(e) => {
+                    // setimage(e.target.files[0]);
+                  }}
+                /> */}
+              </span>
               <ButtonAdd type="submit">Salvar</ButtonAdd>
             </form>
           </ModalBody>

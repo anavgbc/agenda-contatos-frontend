@@ -3,6 +3,22 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 90%;
   padding: 10px;
+  border: 1px solid transparent;
+
+  .error--name {
+    font-size: 12px;
+    margin-left: 5px;
+    color: rgba(194, 70, 70, 0.71);
+  }
+
+  .error {
+    border: 1px solid rgba(194, 70, 70, 0.71);
+    box-shadow: -1px 2px 11px -4px rgba(194, 70, 70, 0.71);
+
+    svg {
+      color: red;
+    }
+  }
 `;
 
 export const InputBox = styled.div`
@@ -22,8 +38,9 @@ export const InputBox = styled.div`
     border-radius: 5px;
     background-color: ${(props) => (props.grayColor ? "#9c99ff0f" : "#ffffff")};
 
-    // &:focus {
-    //   border: 1px solid red;
-    // }
+    &:focus::placeholder {
+      color: transparent;
+      transition: 0.2s;
+    }
   }
 `;
