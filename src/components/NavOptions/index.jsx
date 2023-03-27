@@ -27,8 +27,8 @@ const NavOptions = () => {
         </Option>
         <Option
           onClick={() => {
-            listFavorites();
             setIsFavorites(true);
+            listFavorites();
           }}
         >
           <span className="active-bar" />

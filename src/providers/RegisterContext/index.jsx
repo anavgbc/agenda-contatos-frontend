@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 export const RegisterContext = createContext({});
 
 export const RegisterContextProvider = ({ children }) => {
+  const [number, setNumber] = useState();
+
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
@@ -31,6 +33,8 @@ export const RegisterContextProvider = ({ children }) => {
       value={{
         onSubmit,
         schema,
+        setNumber,
+        number,
       }}
     >
       {children}

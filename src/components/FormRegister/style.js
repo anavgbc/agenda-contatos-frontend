@@ -11,6 +11,21 @@ export const FormContainer = styled.form`
   justify-content: center;
   align-items: center;
 
+  #user--number {
+    margin-bottom: 0px;
+    width: 80%;
+
+    .PhoneInputInput {
+      margin-top: 20px;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .PhoneInputCountryIcon--square {
+      height: 100%;
+    }
+  }
+
   @media screen and (min-width: 768px) {
     width: 60%;
   }

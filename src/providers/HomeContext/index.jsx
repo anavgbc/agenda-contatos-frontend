@@ -26,9 +26,18 @@ export const HomePageContextProvider = ({ children }) => {
 
   const [searchContact, setSearchContact] = useState("");
 
+  const [number, setnumber] = useState();
+
   const { openDelete, setOpenDelete } = useContext(ModalContext);
 
+  // console.log(typeof number);
+
   const createContact = (data) => {
+    if (number) {
+      data.number = number;
+      console.log(number);
+    }
+
     api
       .post("/contacts", data)
       .then((response) => {
@@ -42,17 +51,22 @@ export const HomePageContextProvider = ({ children }) => {
   const editContact = (data) => {
     const finalData = {};
 
+    if (number) {
+      finalData.number = number;
+      console.log(number);
+    }
+
     const keys = Object.keys(data);
     const values = Object.values(data);
 
     values.forEach((value, index) => {
       if (value !== "") {
-        if (keys[index] === "name") {
-          finalData.name = value;
+        if (keys[index] === "firstName") {
+          finalData.firstName = value;
         } else if (keys[index] === "email") {
           finalData.email = value;
-        } else {
-          finalData.number = value;
+        } else if (keys[index] === "lastName") {
+          finalData.lastName = value;
         }
       }
     });
@@ -92,7 +106,9 @@ export const HomePageContextProvider = ({ children }) => {
       .get(`/users/${user.id}`)
       .then((response) => {
         const list = response.data[0].contacts;
-        setContacts(list.sort((a, b) => a.name.localeCompare(b.name)));
+        setContacts(
+          list.sort((a, b) => a.firstName.localeCompare(b.firstName))
+        );
       })
       .catch((err) => console.log(err));
   };
@@ -106,45 +122,12 @@ export const HomePageContextProvider = ({ children }) => {
   const searchInput = () => {
     const result = contacts.filter(
       (elem) =>
-        elem.name.toLowerCase().includes(searchContact.toLowerCase()) ||
+        elem.firstName.toLowerCase().includes(searchContact.toLowerCase()) ||
         elem.number.includes(searchContact)
     );
 
     setFilterList(result);
   };
-
-  const teste = () => {
-    const algo = {
-      name: "Ana",
-      email: "",
-      number: "",
-    };
-
-    const chaves = Object.keys(algo);
-    const values = Object.values(algo);
-
-    const data = {};
-
-    console.log(chaves, values);
-
-    values.forEach((elem, index) => {
-      if (elem !== "") {
-        console.log(chaves[index]);
-        const chave = chaves[index];
-
-        if (chave === "name") {
-          data.name = elem;
-        } else if (chave === "email") {
-          data.email = elem;
-        } else {
-          data.number = elem;
-        }
-        console.log(data);
-      }
-    });
-  };
-
-  teste();
 
   return (
     <HomePageContext.Provider
@@ -172,6 +155,8 @@ export const HomePageContextProvider = ({ children }) => {
         setIsEdit,
         setIsFavorites,
         isFavorites,
+        setnumber,
+        number,
       }}
     >
       {children}

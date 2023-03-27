@@ -11,8 +11,11 @@ import { FormContainer } from "./style";
 import { RegisterContext } from "../../providers/RegisterContext";
 import { Link } from "react-router-dom";
 
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
+
 const FormLogin = () => {
-  const { onSubmit, schema } = useContext(RegisterContext);
+  const { onSubmit, schema, setNumber, number } = useContext(RegisterContext);
 
   const {
     register,
@@ -33,23 +36,17 @@ const FormLogin = () => {
           {...register("name")}
           error={errors.name?.message}
         />
-        <Input
-          placeholder={"(00) 00000-0000"}
-          title="Telefone"
-          type="text"
-          Icon={BsTelephone}
-          {...register("number")}
-          error={errors.number?.message}
-          // onChange={(e) => {
-          //   e.target.value = e.target.value.replace(/(\s)/, "");
-          //   e.target.value = e.target.value.replace(/(\D)/, "");
-          //   e.target.value = e.target.value.replace(
-          //     /(\d{2})(\d{5})(\d{4})/,
-          //     "($1) $2-$3"
-          //   );
-          // }}
-          // maxLength={15}
-        />
+        <span id="user--number">
+          <label htmlFor="">Telefone</label>
+          <PhoneInput
+            className="number--input"
+            placeholder="+55 00 00000-0000"
+            defaultCountry="BR"
+            international
+            value={number}
+            onChange={setNumber}
+          />
+        </span>
         <Input
           placeholder={"Email"}
           title="Email"
@@ -61,7 +58,7 @@ const FormLogin = () => {
         <Input
           placeholder={"Senha"}
           title="Senha"
-          type="text"
+          type="password"
           Icon={AiOutlineEye}
           {...register("password")}
           error={errors.password?.message}
