@@ -37,7 +37,8 @@ const ModalHome = ({ id, edit }) => {
   // console.log(number);
 
   const schema = yup.object().shape({
-    // email: yup.string().email("E-mail inválido"),
+    email: yup.string().required("Campo obrigatório").email("E-mail inválido"),
+    firstName: yup.string().required("*"),
   });
 
   const {
@@ -90,7 +91,7 @@ const ModalHome = ({ id, edit }) => {
                   international
                   value={number}
                   onChange={setnumber}
-                  inputComponent={Input}
+                  // inputComponent={Input}
                 />
               </span>
 

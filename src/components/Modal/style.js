@@ -18,30 +18,20 @@ export const ModalBody = styled.div`
     align-items: center;
 
     #contact--number {
-      margin: 20px 0px 0px 10px;
-    }
+      margin: 20px 0px 0px 2px;
+      width: 85%;
+      /* margin-left: 20px; */
 
-    .number--input {
-      .PhoneInputInput {
-        /* border: 1px solid red; */
-        padding-right: 40px;
-
-        input {
-          padding-right: 0px;
-        }
-      }
-
-      .PhoneInputCountry {
-        margin-left: 10px;
-        /* width: 20%; */
-        /* border: 1px solid blue; */
-      }
       input {
-        /* padding: 10px; */
-        /* margin-left: 10px; */
+        padding: 12px;
+        width: 50%;
+        margin-top: 10px;
         border-radius: 5px;
         background-color: rgba(156, 153, 255, 0.06);
       }
+    }
+
+    .number--input {
     }
 
     .contact-name {
